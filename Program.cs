@@ -78,6 +78,25 @@ namespace TelCo.ColorCoder
         private static int GetPairNumberFromColor(ColorPair pair)
         {
             // Find the major color in the array and get the index
+            int majorIndex = GetMajorIndex();
+            // Find the minor color in the array and get the index
+            int minorIndex = GetMinorIndex();
+            // If colors can not be found throw an exception
+            if (majorIndex == -1 || minorIndex == -1)
+            {
+                throw new ArgumentException(
+                    string.Format("Unknown Colors: {0}", pair.ToString()));
+            }
+            // Compute pair number and Return  
+            // (Note: +1 in compute is because pair number is 1 based, not zero)
+            return (majorIndex * colorMapMinor.Length) + (minorIndex + 1);
+        }
+        /// <summary>
+        /// Find the major color in the array and get the index
+        /// </summary>
+        /// <returns>major index</returns>
+        private static int GetMajorIndex()
+        {
             int majorIndex = -1;
             for (int i = 0; i < colorMapMajor.Length; i++)
             {
@@ -87,8 +106,14 @@ namespace TelCo.ColorCoder
                     break;
                 }
             }
-
-            // Find the minor color in the array and get the index
+            return majorIndex;
+        }
+        /// <summary>
+        /// Find the minor color in the array and get the index
+        /// </summary>
+        /// <returns>Minor index</returns>
+        private static int GetMinorIndex()
+        {
             int minorIndex = -1;
             for (int i = 0; i < colorMapMinor.Length; i++)
             {
@@ -97,17 +122,8 @@ namespace TelCo.ColorCoder
                     minorIndex = i;
                     break;
                 }
-            }
-            // If colors can not be found throw an exception
-            if (majorIndex == -1 || minorIndex == -1)
-            {
-                throw new ArgumentException(
-                    string.Format("Unknown Colors: {0}", pair.ToString()));
-            }
-
-            // Compute pair number and Return  
-            // (Note: +1 in compute is because pair number is 1 based, not zero)
-            return (majorIndex * colorMapMinor.Length) + (minorIndex + 1);
+            } 
+            return minorIndex;
         }
         /// <summary>
         /// Test code for the class
