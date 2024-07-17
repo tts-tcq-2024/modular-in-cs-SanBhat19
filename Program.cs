@@ -42,6 +42,7 @@ namespace TelCo.ColorCoder
         {
             ColorPair testPair1 = Program.GetColorFromPairNumber(pairNumber);
             Console.WriteLine("[In]Pair Number: {0},[Out] Colors: {1}\n", pairNumber, testPair1);
+            return testPair1;
         }
     }
 }
