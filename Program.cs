@@ -38,12 +38,11 @@ namespace TelCo.ColorCoder
             Console.WriteLine("[In]Colors: {0}, [Out] PairNumber: {1}", testPair2, pairNumber);
             Debug.Assert(pairNumber == 6);
         }
-        private ColorPair CalcPair(int pairNumber,Color color1,Color color3)
+        private static void CalcPair(int pairNumber,Color color1,Color color3)
         {
             ColorPair testPair1 = Program.GetColorFromPairNumber(pairNumber);
             Console.WriteLine("[In]Pair Number: {0},[Out] Colors: {1}\n", pairNumber, testPair1);
             Debug.Assert(testPair1.majorColor == color1); Debug.Assert(testPair1.minorColor == color3);
-            return testPair1;
         }
     }
 }
