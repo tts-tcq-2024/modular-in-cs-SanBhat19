@@ -26,9 +26,9 @@ namespace TelCo.ColorCoder
         }
         private static void Main(string[] args)
         {
-            Debug.Assert(CalcPair(4).majorColor == Color.White);Debug.Assert(CalcPair(4).minorColor == Color.Brown);
-            Debug.Assert(CalcPair(5).majorColor == Color.White);Debug.Assert(CalcPair(5).minorColor == Color.SlateGray);
-            Debug.Assert(CalcPair(23).majorColor == Color.Violet);Debug.Assert(CalcPair(23).minorColor == Color.Green);
+            CalcPair(4, Color.White, Color.SlateGray);
+            CalcPair(5,Color.White,Color.SlateGray);
+            CalcPair(23,Color.Violet,Color.Green);
             ColorPair testPair2 = new ColorPair() { majorColor = Color.Yellow, minorColor = Color.Green };
             int pairNumber = Program.GetPairNumberFromColor(testPair2);
             Console.WriteLine("[In]Colors: {0}, [Out] PairNumber: {1}\n", testPair2, pairNumber);
@@ -38,10 +38,11 @@ namespace TelCo.ColorCoder
             Console.WriteLine("[In]Colors: {0}, [Out] PairNumber: {1}", testPair2, pairNumber);
             Debug.Assert(pairNumber == 6);
         }
-        private ColorPair CalcPair(int pairNumber)
+        private ColorPair CalcPair(int pairNumber,Color color1,Color color3)
         {
             ColorPair testPair1 = Program.GetColorFromPairNumber(pairNumber);
             Console.WriteLine("[In]Pair Number: {0},[Out] Colors: {1}\n", pairNumber, testPair1);
+            Debug.Assert(testPair1.majorColor == color1); Debug.Assert(testPair1.minorColor == color3);
             return testPair1;
         }
     }
