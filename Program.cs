@@ -26,7 +26,7 @@ namespace TelCo.ColorCoder
         }
         private static void Main(string[] args)
         {
-            CalcPair(4, Color.White, Color.SlateGray);
+            CalcPair(4, Color.White, Color.Brown);
             CalcPair(5,Color.White,Color.SlateGray);
             CalcPair(23,Color.Violet,Color.Green);
             ColorPair testPair2 = new ColorPair() { majorColor = Color.Yellow, minorColor = Color.Green };
